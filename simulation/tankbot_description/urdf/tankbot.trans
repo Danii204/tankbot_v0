@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<robot name="tankbot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="Revolute 11_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Revolute 11">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Revolute 11_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Revolute 16_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Revolute 16">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Revolute 16_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Revolute 66_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Revolute 66">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Revolute 66_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Revolute 67_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Revolute 67">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Revolute 67_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>

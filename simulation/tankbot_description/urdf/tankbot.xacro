@@ -1,0 +1,788 @@
+<?xml version="1.0" ?>
+<robot name="tankbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find tankbot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find tankbot_description)/urdf/tankbot.trans" />
+<xacro:include filename="$(find tankbot_description)/urdf/tankbot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.061966846190393096 -0.11988994757593131 0.028748806657344462" rpy="0 0 0"/>
+    <mass value="0.3789190138102293"/>
+    <inertia ixx="0.002157" iyy="0.000953" izz="0.002613" ixy="1.6e-05" iyz="1e-06" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_plate_1">
+  <inertial>
+    <origin xyz="0.03400026234554328 -0.0015616643301978317 -0.028819631022657312" rpy="0 0 0"/>
+    <mass value="0.015210773513562193"/>
+    <inertia ixx="6e-06" iyy="1.3e-05" izz="7e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0285 0.1875 -0.063831" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/front_plate_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0285 0.1875 -0.063831" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/front_plate_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_plate_1">
+  <inertial>
+    <origin xyz="-0.0016310334261048743 0.11502130001410846 -0.02545067187398748" rpy="0 0 0"/>
+    <mass value="0.045339201727529144"/>
+    <inertia ixx="0.000216" iyy="1.5e-05" izz="0.000201" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.235 -0.060454" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/right_plate_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.235 -0.060454" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/right_plate_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_plate_1">
+  <inertial>
+    <origin xyz="0.001631034826506117 0.1149787017171648 -0.025450672518136173" rpy="0 0 0"/>
+    <mass value="0.04533930280208076"/>
+    <inertia ixx="0.000216" iyy="1.5e-05" izz="0.000201" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.125 0.235 -0.060454" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/left_plate_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.125 0.235 -0.060454" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/left_plate_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="battery_plate_1">
+  <inertial>
+    <origin xyz="-0.03734181517226223 0.002573524497070788 -0.02875877605555257" rpy="0 0 0"/>
+    <mass value="0.021493243945547247"/>
+    <inertia ixx="7e-06" iyy="1.6e-05" izz="9e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0965 0.0525 -0.063831" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/battery_plate_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0965 0.0525 -0.063831" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/battery_plate_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="battery_1">
+  <inertial>
+    <origin xyz="5.551115123125783e-17 0.017500000000000016 6.938893903907228e-18" rpy="0 0 0"/>
+    <mass value="0.9436366859853663"/>
+    <inertia ixx="0.000359" iyy="0.000734" izz="0.000566" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0625 0.0475 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/battery_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0625 0.0475 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/battery_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_plate_1">
+  <inertial>
+    <origin xyz="-0.05146361197627055 0.05601833323489462 0.001911310443752437" rpy="0 0 0"/>
+    <mass value="0.044779162933929396"/>
+    <inertia ixx="4.6e-05" iyy="3.9e-05" izz="8.5e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.113961 0.176182 -0.07" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/lidar_plate_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.113961 0.176182 -0.07" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/lidar_plate_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_axis_1">
+  <inertial>
+    <origin xyz="-0.004624999999999574 2.607081217576024e-13 9.020562075079397e-17" rpy="0 0 0"/>
+    <mass value="0.002186843011209861"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1295 0.2 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/wheel_axis_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1295 0.2 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/wheel_axis_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="axis_connector_1">
+  <inertial>
+    <origin xyz="-0.0037832205362184623 -2.4980018054066022e-15 -1.3877787807814457e-17" rpy="0 0 0"/>
+    <mass value="0.0034286186333100147"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1455 0.2 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/axis_connector_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1455 0.2 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/axis_connector_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_1">
+  <inertial>
+    <origin xyz="0.007379216067521871 2.0761170560490427e-14 -1.2934098236883074e-14" rpy="0 0 0"/>
+    <mass value="0.02707353948767036"/>
+    <inertia ixx="7e-06" iyy="5e-06" izz="5e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1455 0.2 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1455 0.2 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_axis_2">
+  <inertial>
+    <origin xyz="-0.004624999999999602 2.6105506645279775e-13 -7.7021722333370235e-16" rpy="0 0 0"/>
+    <mass value="0.002186843011209861"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1295 0.04 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/wheel_axis_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1295 0.04 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/wheel_axis_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="axis_connector_2">
+  <inertial>
+    <origin xyz="-0.003783220536218518 -2.1649348980190553e-15 -8.743006318923108e-16" rpy="0 0 0"/>
+    <mass value="0.0034286186333100147"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1455 0.04 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/axis_connector_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1455 0.04 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/axis_connector_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_2">
+  <inertial>
+    <origin xyz="0.00737921606752176 2.0816681711721685e-14 -0.008000000000015904" rpy="0 0 0"/>
+    <mass value="0.02707353948767036"/>
+    <inertia ixx="7e-06" iyy="5e-06" izz="5e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1455 0.04 -0.043" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/wheel_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1455 0.04 -0.043" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/wheel_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tire_2">
+  <inertial>
+    <origin xyz="0.015000000000000235 -2.1510571102112408e-16 -0.02322100000000306" rpy="0 0 0"/>
+    <mass value="0.14208029316988524"/>
+    <inertia ixx="0.000233" iyy="0.000127" izz="0.000127" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1355 0.04 -0.058221" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/tire_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1355 0.04 -0.058221" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/tire_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_3">
+  <inertial>
+    <origin xyz="-0.00737921606752185 -2.045585922871851e-14 -0.008000000000014912" rpy="0 0 0"/>
+    <mass value="0.02707353948767036"/>
+    <inertia ixx="7e-06" iyy="5e-06" izz="5e-06" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0205 0.2 -0.043" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/wheel_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0205 0.2 -0.043" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/wheel_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_4">
+  <inertial>
+    <origin xyz="-0.00737921606752185 -2.0462798122622416e-14 -0.008000000000015044" rpy="0 0 0"/>
+    <mass value="0.02707353948767036"/>
+    <inertia ixx="7e-06" iyy="5e-06" izz="5e-06" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0205 0.04 -0.043" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/wheel_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0205 0.04 -0.043" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/wheel_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tire_3">
+  <inertial>
+    <origin xyz="-0.015000000000000345 6.38378239159465e-16 -0.023221000000002122" rpy="0 0 0"/>
+    <mass value="0.14208029316988524"/>
+    <inertia ixx="0.000233" iyy="0.000127" izz="0.000127" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0105 0.04 -0.058221" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/tire_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0105 0.04 -0.058221" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/tire_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tire_4">
+  <inertial>
+    <origin xyz="-0.015000000000000345 5.828670879282072e-16 -0.023221000000001976" rpy="0 0 0"/>
+    <mass value="0.14208029316988524"/>
+    <inertia ixx="0.000233" iyy="0.000127" izz="0.000127" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0105 0.2 -0.058221" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/tire_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0105 0.2 -0.058221" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/tire_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tire_1">
+  <inertial>
+    <origin xyz="0.015000000000000346 -2.7755575615628914e-16 -0.023221000000000082" rpy="0 0 0"/>
+    <mass value="0.14208029316988524"/>
+    <inertia ixx="0.000233" iyy="0.000127" izz="0.000127" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1355 0.2 -0.058221" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/tire_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1355 0.2 -0.058221" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/tire_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="DC_12V_421rpm_motor_1">
+  <inertial>
+    <origin xyz="-0.04283979402714558 1.8729137864492706e-06 1.8753426576888221e-06" rpy="0 0 0"/>
+    <mass value="0.18854507462767076"/>
+    <inertia ixx="2.3e-05" iyy="0.000143" izz="0.000143" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1005 0.163 -0.0185" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/DC_12V_421rpm_motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1005 0.163 -0.0185" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/DC_12V_421rpm_motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="DC_12V_421rpm_motor_2">
+  <inertial>
+    <origin xyz="0.04283979402714507 -1.1474023120516819e-09 2.6521350333860716e-06" rpy="0 0 0"/>
+    <mass value="0.18854507462767076"/>
+    <inertia ixx="2.3e-05" iyy="0.000143" izz="0.000143" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0245 0.077 -0.0185" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/DC_12V_421rpm_motor_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0245 0.077 -0.0185" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/DC_12V_421rpm_motor_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_axis_4">
+  <inertial>
+    <origin xyz="-0.020624999999999796 2.6087465521129616e-13 2.220446049250313e-16" rpy="0 0 0"/>
+    <mass value="0.002186843011209861"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.02075 0.2 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/wheel_axis_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.02075 0.2 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/wheel_axis_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_axis_3">
+  <inertial>
+    <origin xyz="-0.020624999999999796 2.609093496808157e-13 9.71445146547012e-17" rpy="0 0 0"/>
+    <mass value="0.002186843011209861"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.02075 0.04 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/wheel_axis_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.02075 0.04 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/wheel_axis_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="axis_connector_4">
+  <inertial>
+    <origin xyz="0.003783220536218466 2.525757381022231e-15 -6.938893903907228e-18" rpy="0 0 0"/>
+    <mass value="0.0034286186333100147"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0205 0.04 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/axis_connector_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0205 0.04 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/axis_connector_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="axis_connector_3">
+  <inertial>
+    <origin xyz="0.003783220536218466 2.4980018054066022e-15 1.1796119636642288e-16" rpy="0 0 0"/>
+    <mass value="0.0034286186333100147"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0205 0.2 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/axis_connector_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0205 0.2 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/axis_connector_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="jetson_socket_1">
+  <inertial>
+    <origin xyz="0.01517810020848679 0.024413686300538348 0.0020584155726718" rpy="0 0 0"/>
+    <mass value="0.005389997737117132"/>
+    <inertia ixx="4e-06" iyy="2e-06" izz="6e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.05479 0.142 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/jetson_socket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.05479 0.142 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/jetson_socket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Jetson_Nano_Developer_Kit_1">
+  <inertial>
+    <origin xyz="0.02875976275966966 0.04306402367025662 0.01147816369811254" rpy="0 0 0"/>
+    <mass value="0.6342806059346726"/>
+    <inertia ixx="0.000331" iyy="0.000382" izz="0.000627" ixy="7e-06" iyz="-5e-06" ixz="-3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.03975 0.16125 -0.041" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/Jetson_Nano_Developer_Kit_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.03975 0.16125 -0.041" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/Jetson_Nano_Developer_Kit_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="RPLIDAR_C1_1">
+  <inertial>
+    <origin xyz="8.326672684688674e-17 0.0 0.011622347913837539" rpy="0 0 0"/>
+    <mass value="0.4236926119504609"/>
+    <inertia ixx="0.000124" iyy="0.000124" izz="0.000209" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0625 0.12 -0.075" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/RPLIDAR_C1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0625 0.12 -0.075" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/RPLIDAR_C1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component38_1">
+  <inertial>
+    <origin xyz="-6.938893903907228e-18 1.3877787807814457e-17 0.008888960581886457" rpy="0 0 0"/>
+    <mass value="0.20990780389424532"/>
+    <inertia ixx="3.8e-05" iyy="3.8e-05" izz="6.5e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0625 0.12 -0.0983" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/Component38_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0625 0.12 -0.0983" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tankbot_description/meshes/Component38_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rigid 2" type="fixed">
+  <origin xyz="0.0285 -0.1875 0.063831" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="front_plate_1"/>
+</joint>
+
+<joint name="Rigid 4" type="fixed">
+  <origin xyz="0.0 -0.235 0.060454" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_plate_1"/>
+</joint>
+
+<joint name="Rigid 5" type="fixed">
+  <origin xyz="0.125 -0.235 0.060454" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_plate_1"/>
+</joint>
+
+<joint name="Rigid 7" type="fixed">
+  <origin xyz="0.0965 -0.0525 0.063831" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="battery_plate_1"/>
+</joint>
+
+<joint name="Rigid 9" type="fixed">
+  <origin xyz="-0.034 0.005 -0.028831" rpy="0 0 0"/>
+  <parent link="battery_plate_1"/>
+  <child link="battery_1"/>
+</joint>
+
+<joint name="Rigid 10" type="fixed">
+  <origin xyz="0.113961 -0.176182 0.07" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_plate_1"/>
+</joint>
+
+<joint name="Revolute 11" type="continuous">
+  <origin xyz="0.0045 0.035 -0.025454" rpy="0 0 0"/>
+  <parent link="left_plate_1"/>
+  <child link="wheel_axis_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Rigid 12" type="fixed">
+  <origin xyz="0.016 0.0 0.0" rpy="0 0 0"/>
+  <parent link="wheel_axis_1"/>
+  <child link="axis_connector_1"/>
+</joint>
+
+<joint name="Rigid 15" type="fixed">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="axis_connector_1"/>
+  <child link="wheel_1"/>
+</joint>
+
+<joint name="Revolute 16" type="continuous">
+  <origin xyz="0.0045 0.195 -0.025454" rpy="0 0 0"/>
+  <parent link="left_plate_1"/>
+  <child link="wheel_axis_2"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+</joint>
+
+<joint name="Rigid 17" type="fixed">
+  <origin xyz="0.016 0.0 0.0" rpy="0 0 0"/>
+  <parent link="wheel_axis_2"/>
+  <child link="axis_connector_2"/>
+</joint>
+
+<joint name="Rigid 18" type="fixed">
+  <origin xyz="0.0 0.0 0.008" rpy="0 0 0"/>
+  <parent link="axis_connector_2"/>
+  <child link="wheel_2"/>
+</joint>
+
+<joint name="Rigid 19" type="fixed">
+  <origin xyz="-0.01 0.0 0.015221" rpy="0 0 0"/>
+  <parent link="wheel_2"/>
+  <child link="tire_2"/>
+</joint>
+
+<joint name="Rigid 24" type="fixed">
+  <origin xyz="0.0 0.0 0.008" rpy="0 0 0"/>
+  <parent link="axis_connector_3"/>
+  <child link="wheel_3"/>
+</joint>
+
+<joint name="Rigid 25" type="fixed">
+  <origin xyz="0.0 0.0 0.008" rpy="0 0 0"/>
+  <parent link="axis_connector_4"/>
+  <child link="wheel_4"/>
+</joint>
+
+<joint name="Rigid 26" type="fixed">
+  <origin xyz="0.01 0.0 0.015221" rpy="0 0 0"/>
+  <parent link="wheel_4"/>
+  <child link="tire_3"/>
+</joint>
+
+<joint name="Rigid 27" type="fixed">
+  <origin xyz="0.01 0.0 0.015221" rpy="0 0 0"/>
+  <parent link="wheel_3"/>
+  <child link="tire_4"/>
+</joint>
+
+<joint name="Rigid 28" type="fixed">
+  <origin xyz="-0.01 0.0 0.023221" rpy="0 0 0"/>
+  <parent link="wheel_1"/>
+  <child link="tire_1"/>
+</joint>
+
+<joint name="Rigid 54" type="fixed">
+  <origin xyz="0.1005 -0.163 0.0185" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="DC_12V_421rpm_motor_1"/>
+</joint>
+
+<joint name="Rigid 55" type="fixed">
+  <origin xyz="0.0245 -0.077 0.0185" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="DC_12V_421rpm_motor_2"/>
+</joint>
+
+<joint name="Revolute 66" type="continuous">
+  <origin xyz="0.02075 -0.2 0.035" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_axis_4"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 67" type="continuous">
+  <origin xyz="0.02075 -0.04 0.035" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_axis_3"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Rigid 68" type="fixed">
+  <origin xyz="-0.04125 0.0 0.0" rpy="0 0 0"/>
+  <parent link="wheel_axis_3"/>
+  <child link="axis_connector_4"/>
+</joint>
+
+<joint name="Rigid 69" type="fixed">
+  <origin xyz="-0.04125 0.0 0.0" rpy="0 0 0"/>
+  <parent link="wheel_axis_4"/>
+  <child link="axis_connector_3"/>
+</joint>
+
+<joint name="Rigid 75" type="fixed">
+  <origin xyz="0.05479 -0.142 0.035" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="jetson_socket_1"/>
+</joint>
+
+<joint name="Rigid 76" type="fixed">
+  <origin xyz="-0.01504 -0.01925 0.006" rpy="0 0 0"/>
+  <parent link="jetson_socket_1"/>
+  <child link="Jetson_Nano_Developer_Kit_1"/>
+</joint>
+
+<joint name="Rigid 83" type="fixed">
+  <origin xyz="-0.051461 0.056182 0.005" rpy="0 0 0"/>
+  <parent link="lidar_plate_1"/>
+  <child link="RPLIDAR_C1_1"/>
+</joint>
+
+<joint name="Rigid 84" type="fixed">
+  <origin xyz="0.0 0.0 0.0233" rpy="0 0 0"/>
+  <parent link="RPLIDAR_C1_1"/>
+  <child link="Component38_1"/>
+</joint>
+
+</robot>
