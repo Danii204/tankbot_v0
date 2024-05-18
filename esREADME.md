@@ -1,7 +1,7 @@
 # TANKBOT_V0
 Robot modular con tracción 4x4 para aprender robotica.
 > [!IMPORTANT]
-> Bajo desarrollo.
+> Descontinuado.
 
 ## Índice
 - [TANKBOT\_V0](#tankbot_v0)
