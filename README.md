@@ -1,7 +1,7 @@
 # TANKBOT_V0
 Modular robot with 4x4 traction for learning robotics.
 > [!IMPORTANT]
-> Under development.
+> Descontinued.
 
 ## Table of Contents
 - [TANKBOT\_V0](#tankbot_v0)
